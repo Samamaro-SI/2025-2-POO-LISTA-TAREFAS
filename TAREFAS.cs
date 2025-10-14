@@ -1,11 +1,11 @@
 public class Tarefa
 {
-    public Id Int {get; set;}
-    public Nome String {get; set;}
-    public Descricao String {get; set;} 
-    public DataCriacao DateTime {get; set;}
-    public Status Int {get; set;}
-    public DataExecucao DateTime {get; set;}
+    public int Id  {get; set;}
+    public string Nome  {get; set;}
+    public string Descricao  {get; set;} 
+    public DateTime DataCriacao  {get; set;}
+    public int Status  {get; set;}
+    public DateTime? DataExecucao  {get; set;}
 
 }
 

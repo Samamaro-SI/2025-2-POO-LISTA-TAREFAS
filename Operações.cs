@@ -1,15 +1,18 @@
+using MySql.Data.MySqlClient;
+
 public class Operacoes
 {
-    private string connectionString = "";
+    private string connectionString =
+    @"server=phpmyadmin.uni9.marize.us;User ID=user_poo;password=S3nh4!F0rt3;database=user_poo;";
     public int Criar(Tarefa tarefa)
     {
-        using(var conexao - new MySqlConection(connectionstring))
+        using(var conexao = new MySqlConnection(connectionString))
         {
             conexao.Open();
             string sql = @"INSERT INTO tarefa (nome, descricao, dataCriacao, status, dataExecucao)
-                        VALUES (@nome, @descrição, @dataCriacao, @status, @dataExecucao);
+                        VALUES (@nome, @descricao, @dataCriacao, @status, @dataExecucao);
                         SELECT LAST_INSERT_ID();";
-            using (var cmd = new MySqlComand(sql, conexao))
+            using (var cmd = new MySqlCommand(sql, conexao))
             {
                 cmd.Parameters.AddWithValue("@nome", tarefa.Nome);
                 cmd.Parameters.AddWithValue("@descricao", tarefa.Descricao);
@@ -28,7 +31,7 @@ public class Operacoes
     {
         return null;
     }
-    public List<Terefa> Listar()
+    public IList<Tarefa> Listar()
     {
         return Array.Empty<Tarefa>();
     }
